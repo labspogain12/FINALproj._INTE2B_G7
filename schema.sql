@@ -1,0 +1,18 @@
+CREATE DATABASE blogdb;
+
+CREATE TABLE posts (
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+content TEXT NOT NULL,
+author VARCHAR(100) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP,
+tags VARCHAR(255)
+);
+
+
+SELECT * FROM posts;
+
+SET @count = 0;
+UPDATE posts SET id = (@count := @count + 1);
+ALTER TABLE posts AUTO_INCREMENT = 1;
